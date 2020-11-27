@@ -7661,6 +7661,7 @@ bool    ImGui::TabItemEx(ImGuiTabBar* tab_bar, ImStrv label, bool* p_open, ImGui
         flags |= ImGuiTabItemFlags_NoCloseButton;
 
     // Calculate tab contents size
+    label.End = FindRenderedTextEnd(label);
     ImVec2 size = TabItemCalcSize(label, p_open != NULL);
 
     // Acquire tab data
@@ -7689,7 +7690,8 @@ bool    ImGui::TabItemEx(ImGuiTabBar* tab_bar, ImStrv label, bool* p_open, ImGui
     // Append name with zero-terminator
     tab->NameOffset = (ImS16)tab_bar->TabsNames.size();
     tab_bar->TabsNames.append(label);
-    tab_bar->TabsNames.append(ImStrv("\0", 1));
+    char zero_c = 0;
+    tab_bar->TabsNames.append(ImStrv(&zero_c, &zero_c + 1));
 
     // Update selected tab
     if (tab_appearing && (tab_bar->Flags & ImGuiTabBarFlags_AutoSelectNewTabs) && tab_bar->NextSelectedTabId == 0)
@@ -7900,7 +7902,7 @@ void ImGui::TabItemBackground(ImDrawList* draw_list, const ImRect& bb, ImGuiTabI
 void ImGui::TabItemLabelAndCloseButton(ImDrawList* draw_list, const ImRect& bb, ImGuiTabItemFlags flags, ImVec2 frame_padding, ImStrv label, ImGuiID tab_id, ImGuiID close_button_id, bool is_contents_visible, bool* out_just_closed, bool* out_text_clipped)
 {
     ImGuiContext& g = *GImGui;
-    ImVec2 label_size = CalcTextSize(label, true);
+    ImVec2 label_size = CalcTextSize(label);
 
     if (out_just_closed)
         *out_just_closed = false;
