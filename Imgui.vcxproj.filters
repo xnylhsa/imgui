@@ -57,6 +57,9 @@
     <ClInclude Include="Inc\Common.h">
       <Filter>Inc</Filter>
     </ClInclude>
+    <ClInclude Include="Inc\ImguiLayer.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\imgui.cpp">
@@ -90,6 +93,9 @@
       <Filter>Src</Filter>
     </ClCompile>
     <ClCompile Include="Src\imgui_impl_glfw.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\ImguiLayer.cpp">
       <Filter>Src</Filter>
     </ClCompile>
   </ItemGroup>

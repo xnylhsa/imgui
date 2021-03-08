@@ -122,6 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -149,6 +150,7 @@
     <ClInclude Include="Inc\DearImgui.h" />
     <ClInclude Include="Inc\imconfig.h" />
     <ClInclude Include="Inc\imgui.h" />
+    <ClInclude Include="Inc\ImguiLayer.h" />
     <ClInclude Include="Inc\imgui_impl_android.h" />
     <ClInclude Include="Inc\imgui_impl_dx12.h" />
     <ClInclude Include="Inc\imgui_impl_glfw.h" />
@@ -164,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\imgui.cpp" />
+    <ClCompile Include="Src\ImguiLayer.cpp" />
     <ClCompile Include="Src\imgui_demo.cpp" />
     <ClCompile Include="Src\imgui_draw.cpp" />
     <ClCompile Include="Src\imgui_impl_android.cpp" />
@@ -184,6 +187,9 @@
     </ProjectReference>
     <ProjectReference Include="..\..\Framework\Math\Math.vcxproj">
       <Project>{528a854a-8248-4766-8c67-84e888f5dae3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GLFW\src\glfw.vcxproj">
+      <Project>{c376d310-6f00-3261-81e7-e4da29506c2d}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,4 @@
 #include "Precompiled.h"
-#ifdef SINGULARITY_USE_VULKAN
 // dear imgui: Renderer Backend for Vulkan
 // This needs to be used along with a Platform Backend (e.g. GLFW, SDL, Win32, custom..)
 
@@ -53,6 +52,8 @@
 //  2016-08-27: Vulkan: Fix Vulkan example for use when a depth buffer is active.
 
 #include "imgui_impl_vulkan.h"
+#ifdef SINGULARITY_USE_VULKAN
+
 #include <stdio.h>
 
 // Reusable buffers used for rendering 1 current in-flight frame, for ImGui_ImplVulkan_RenderDrawData()

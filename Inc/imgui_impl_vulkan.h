@@ -42,7 +42,11 @@
 #if defined(IMGUI_IMPL_VULKAN_NO_PROTOTYPES) && !defined(VK_NO_PROTOTYPES)
 #define VK_NO_PROTOTYPES
 #endif
-#include <vulkan/vulkan.h>
+#include "External/vulkan/vulkan.h"
+#include "External/vulkan/vk_platform.h"
+#if defined VK_USE_PLATFORM_WIN32_KHR
+#include "External/vulkan/vulkan_win32.h"
+#endif
 
 // Initialization data, for ImGui_ImplVulkan_Init()
 // [Please zero-clear before use!]
